@@ -35,7 +35,6 @@ const image = document.querySelector(".js-image");
 //    html += ` <h3 class="js-user main__section--container--text--user">${allUsersLogin}</h3>`;
 //    html += `<h1 class="js-name main__section--container--text--name">${allUsersName}</h1>`;
 //    html += `<h3 class="js-city main__section--container--text--city">${allUsersCity}</h3>`;
-//    html += `</li>`;
 //  }
 //}
 //
