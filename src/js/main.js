@@ -37,19 +37,26 @@ const image = document.querySelector(".js-image");
 //    html += `<h3 class="js-city main__section--container--text--city">${allUsersCity}</h3>`;
 //  }
 //}
-//
+//--FUNCIÓN DEL THEN QUE BUSCA LOS DATOS DE LA API Y LOS DEVUELVE--
+//const convertToJS = (response) => {
+//   return response.json();
+// };
+
 console.log("antes");
-function convertToJS(response) {
-  return response.json();
-}
 
 function renderToHTML(data) {
   console.log(data);
 }
 
+//
+
 fetch("https://randomuser.me/api/?results=10")
-  .then(convertToJS)
+  .then(
+    (response) => response.json()
+    //SI LA FUNCIÓN SOLO TIENE UN PARÁMETRO SE LE PUEDE QUITAR LOS PARÉNTESIS
+    //SI EL RETURN SOLO TIENE UNA LÍNEA, SE PUEDEN QUITAR LLAVES Y EL RETURN
+  )
 
-  .then(renderToHTML);
-
-console.log("Después");
+  .then((data) => {
+    allUsers = data;
+  });
