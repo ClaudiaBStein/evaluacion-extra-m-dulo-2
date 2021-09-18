@@ -1,17 +1,7 @@
 "use strict";
 
 const arrayContainer = document.querySelector(".js-section");
-//const friend =
-// const clickedFriend = event.currentTarget;
-//
-// if (ev.currentTarget.id === friend) {
-//   containerBackground.classList.add('friended');
-// } else {
-//   containerBackground.classList.remove('friended');
-// }
-//
-//
-// const image = document.querySelector(".js-image");
+
 //// VARIABLES PARA LA FUNCIÓN PAINTUSERS
 let allUsers = [];
 let allUsersImg = [];
@@ -24,21 +14,17 @@ let allUsersId = [];
 function paintUsers() {
   let html = "";
   for (const info of allUsers) {
-    allUsersId = info.id;
-    allUsersLogin = info.login;
-    allUsersImg = info.picture.medium;
-    allUsersName = info.name;
-    allUsersCity = info.location.city;
-    html += ` <li class="js-container main__section--container" id="${allUsersId}">`;
+    console.log(info.id);
+    html += ` <li class="js-container main__section--container" id="${info.login.uuid}">`;
     html += `<img
            class="js-image main__section--container--img"
            id=""
-           src="${allUsersImg}"
+           src="${info.picture.medium}"
            alt=""
          />`;
-    html += ` <h3 class="js-user main__section--container--text--user">${allUsersLogin}</h3>`;
-    html += `<h1 class="js-name main__section--container--text--name">${allUsersName}</h1>`;
-    html += `<h3 class="js-city main__section--container--text--city">${allUsersCity}</h3>`;
+    html += ` <h3 class="js-user main__section--container--text--user">@${info.login.username}</h3>`;
+    html += `<h1 class="js-name main__section--container--text--name">${info.name.first}</h1>`;
+    html += `<h3 class="js-city main__section--container--text--city">${info.location.city}</h3>`;
   }
   arrayContainer.innerHTML = html;
 }
@@ -57,6 +43,6 @@ fetch("https://randomuser.me/api/?results=10")
   )
 
   .then((data) => {
-    allUsers = data;
+    allUsers = data.results;
     paintUsers();
   });

@@ -64,6 +64,8 @@
       &--img {
         height: 125px;
         width: 90px;
+        filter: grayscale(90%);
+        margin-top: 10px;
       }
       &--text {
         font-family: "Arimo", sans-serif;
@@ -72,8 +74,25 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-top: 5px;
+
         color: #102a30;
+        &--name {
+          font-family: "Arimo", sans-serif;
+          font-size: 20px;
+          color: #ffffff;
+          text-transform: uppercase;
+        }
+        &--city {
+          font-family: "Arimo", sans-serif;
+          font-size: 13px;
+          color: #102a30;
+        }
+        &--user {
+          font-family: "Arimo", sans-serif;
+          font-size: 13px;
+          color: #102a30;
+          margin-top: 5px;
+        }
       }
     }
   }

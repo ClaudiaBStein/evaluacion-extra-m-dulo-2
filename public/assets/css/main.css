@@ -73,7 +73,9 @@ page {
       width: 100%; }
       .main__section--container--img {
         height: 125px;
-        width: 90px; }
+        width: 90px;
+        filter: grayscale(90%);
+        margin-top: 10px; }
       .main__section--container--text {
         font-family: "Arimo", sans-serif;
         font-size: 10px;
@@ -81,8 +83,21 @@ page {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-top: 5px;
         color: #102a30; }
+        .main__section--container--text--name {
+          font-family: "Arimo", sans-serif;
+          font-size: 20px;
+          color: #ffffff;
+          text-transform: uppercase; }
+        .main__section--container--text--city {
+          font-family: "Arimo", sans-serif;
+          font-size: 13px;
+          color: #102a30; }
+        .main__section--container--text--user {
+          font-family: "Arimo", sans-serif;
+          font-size: 13px;
+          color: #102a30;
+          margin-top: 5px; }
 
 #demo {
   box-shadow: 0px 0px 19px -1px rgba(43, 108, 123, 0.7); }
