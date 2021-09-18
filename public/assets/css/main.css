@@ -60,6 +60,7 @@ page {
     overflow: scroll;
     scroll-behavior: smooth;
     height: 568px;
+    padding: 0;
     border: #2b6c7b solid 1px;
     border-radius: 5px;
     margin: 20px; }
