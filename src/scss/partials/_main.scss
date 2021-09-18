@@ -1,0 +1,31 @@
+.main {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(137, 168, 167, 1) 100%
+  );
+  height: 70vh;
+  &__form {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    &--input {
+      margin-left: 20px;
+      height: 20px;
+      background-color: rgb(209, 224, 224);
+      border: none;
+      padding-left: 5px;
+    }
+    &--button {
+      height: 20px;
+      width: 50px;
+      margin-left: 5px;
+      background-color: #2b6c7b;
+      border: none;
+    }
+  }
+}
