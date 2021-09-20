@@ -1,7 +1,7 @@
 "use strict";
 
 const arrayContainer = document.querySelector(".js-section");
-const userContainer = document.querySelector(".js-container");
+let userContainer = document.querySelectorAll(".js-container");
 //// VARIABLES PARA LA FUNCIÓN PAINTUSERS
 let allUsers = [];
 //
@@ -9,7 +9,6 @@ let allUsers = [];
 function paintUsers() {
   let html = "";
   for (const info of allUsers) {
-    console.log(info);
     html += ` <li class="js-container main__section--container" id="${info.login.uuid}">`;
     html += `<img
            class="js-image main__section--container--img"
@@ -43,19 +42,18 @@ fetch("https://randomuser.me/api/?results=10")
     for (const friend of allUsers) {
       friend.isFriend = false;
     }
-    console.log();
+
     paintUsers();
   });
 
 //function handleFriend(ev) {
-//  if ((friend.isFriend = true)) {
-//    userContainer.classList.add("friended");
-//  } else {
-//    userContainer.classList.remove("friended");
-//  }
-//  paintUsers();
+//  console.log(ev.currentTarget);
 //}
-
-//userContainer.addEventListener("click", handleFriend);
-//console.log();
 //
+//function listenFriends() {
+//  for (const user of allUsers) {
+//    userContainer.addEventListener("click", handleFriend);
+//  }
+//  console.log(listenFriend);
+//}
+//listenFriend();
