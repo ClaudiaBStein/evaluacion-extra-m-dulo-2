@@ -14,7 +14,7 @@ let allUsersId = [];
 function paintUsers() {
   let html = "";
   for (const info of allUsers) {
-    console.log(info.id);
+    console.log(info);
     html += ` <li class="js-container main__section--container" id="${info.login.uuid}">`;
     html += `<img
            class="js-image main__section--container--img"
@@ -34,6 +34,7 @@ const convertToJS = (response) => {
 };
 
 //
+// isFriend: false
 
 fetch("https://randomuser.me/api/?results=10")
   .then(
@@ -44,6 +45,10 @@ fetch("https://randomuser.me/api/?results=10")
 
   .then((data) => {
     allUsers = data.results;
+    for (const friend of allUsers) {
+      friend.isFriend = false;
+    }
+    console.log(allUsers);
     paintUsers();
   });
 
