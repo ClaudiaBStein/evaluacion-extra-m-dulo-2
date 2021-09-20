@@ -1,14 +1,9 @@
 "use strict";
 
 const arrayContainer = document.querySelector(".js-section");
-
+const userContainer = document.querySelector(".js-container");
 //// VARIABLES PARA LA FUNCIÓN PAINTUSERS
 let allUsers = [];
-let allUsersImg = [];
-let allUsersName = [];
-let allUsersLogin = [];
-let allUsersCity = [];
-let allUsersId = [];
 //
 ////FUNCIÓN QUE PINTA LOS DATOS EN LA SECTION
 function paintUsers() {
@@ -48,8 +43,21 @@ fetch("https://randomuser.me/api/?results=10")
     for (const friend of allUsers) {
       friend.isFriend = false;
     }
-    console.log(allUsers);
+    console.log();
     paintUsers();
   });
+
+//function handleFriend(ev) {
+//  if ((friend.isFriend = true)) {
+//    userContainer.classList.add("friended");
+//  } else {
+//    userContainer.classList.remove("friended");
+//  }
+//  paintUsers();
+//}
+
+//userContainer.addEventListener("click", handleFriend);
+//console.log();
+//
 
 //# sourceMappingURL=main.js.map
