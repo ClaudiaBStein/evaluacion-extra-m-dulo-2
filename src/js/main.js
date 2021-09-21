@@ -1,5 +1,7 @@
 'use strict';
 
+//EJERCICIO FUTURO: Guardar datos de la API en el localStorage y que se guarden los amigos al recargar.
+
 const arrayContainer = document.querySelector('.js-section');
 const containerStyle = document.querySelector('.js-container');
 //// VARIABLES PARA LA FUNCIÓN PAINTUSERS
@@ -9,14 +11,14 @@ let allUsers = [];
 ////FUNCIÓN QUE PINTA LOS DATOS EN LA SECTION
 function paintUsers() {
   let html = '';
-  //let friendedClass = '';
+  let friendedClass = '';
   for (const info of allUsers) {
-    //if (info.isFriend === true) {
-    //  friendedClass = 'friended';
-    //} else {
-    //  friendedClass = '';
-    //}
-    html += ` <li class="js-container  main__section--container" id="${info.login.uuid}">`;
+    if (info.isFriend === true) {
+      friendedClass = 'friended';
+    } else {
+      friendedClass = '';
+    }
+    html += ` <li class="js-container   main__section--container ${friendedClass}" id="${info.login.uuid}">`;
     html += `<img
            class="js-image main__section--container--img"
            id=""
@@ -66,13 +68,10 @@ function handleFriend(event) {
   const clickedFriend = allUsers.find((user) => {
     return user.login.uuid === selectedFriendId;
   });
-  clickedFriend.isFriend = true;
+
   clickedFriend.isFriend = !clickedFriend.isFriend;
-  if (clickedFriend.isFriend === true) {
-    containerStyle.classList.add('friended');
-  } else {
-    containerStyle.classList.remove('friended');
-  }
-  console.log(containerStyle);
+
+  console.log(allUsers);
   paintUsers();
+  listenFriends();
 }
