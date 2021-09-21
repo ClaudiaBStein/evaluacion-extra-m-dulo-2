@@ -21,6 +21,7 @@ function paintUsers() {
     html += `<h3 class="js-city main__section--container--text--city">${info.location.city}</h3>`;
   }
   arrayContainer.innerHTML = html;
+  listenFriends();
 }
 //--FUNCIÓN DEL THEN QUE BUSCA LOS DATOS DE LA API Y LOS DEVUELVE--
 const convertToJS = (response) => {
@@ -45,6 +46,12 @@ fetch("https://randomuser.me/api/?results=10")
 
     paintUsers();
   });
+
+function listenFriends(ev) {
+  for (const user of userContainer) {
+    user.addEventListener("click", handleFriend);
+  }
+}
 
 //function handleFriend(ev) {
 //  console.log(ev.currentTarget);
