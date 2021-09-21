@@ -1,7 +1,6 @@
 "use strict";
 
 const arrayContainer = document.querySelector(".js-section");
-let userContainer = document.querySelectorAll(".js-container");
 //// VARIABLES PARA LA FUNCIÓN PAINTUSERS
 let allUsers = [];
 //
@@ -9,6 +8,11 @@ let allUsers = [];
 function paintUsers() {
   let html = "";
   for (const info of allUsers) {
+    // if (clickedFriend === true) {
+    //   userContainer.classList.add("friended");
+    // } else {
+    //   userContainer.classList.remove("friended");
+    // }
     html += ` <li class="js-container main__section--container" id="${info.login.uuid}">`;
     html += `<img
            class="js-image main__section--container--img"
@@ -48,19 +52,18 @@ fetch("https://randomuser.me/api/?results=10")
   });
 
 function listenFriends(ev) {
+  let userContainer = document.querySelectorAll(".js-container");
   for (const user of userContainer) {
     user.addEventListener("click", handleFriend);
   }
 }
 
-//function handleFriend(ev) {
-//  console.log(ev.currentTarget);
-//}
-//
-//function listenFriends() {
-//  for (const user of allUsers) {
-//    userContainer.addEventListener("click", handleFriend);
-//  }
-//  console.log(listenFriend);
-//}
-//listenFriend();
+function handleFriend(event) {
+  const selectedFriendId = event.currentTarget.id;
+  const clickedFriend = allUsers.find((user) => {
+    return user.login.uuid === selectedFriendId;
+  });
+  clickedFriend.isFriend = true;
+  //clickedFriend.isFriend = !clickedFriend.isFriend;
+  paintUsers();
+}
